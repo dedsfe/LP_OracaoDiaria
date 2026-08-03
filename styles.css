@@ -332,6 +332,15 @@ body {
   transform: scale(0.97);
 }
 
+.waitlist__note--done {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.waitlist__note--error {
+  color: var(--ink);
+}
+
 .waitlist__note {
   font-size: var(--t-micro);
   line-height: 1.3;
