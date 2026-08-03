@@ -195,6 +195,76 @@
           </dl>
         </div>
       </section>
+
+      <section class="section section--close">
+        <div class="container">
+          <span class="emoji" role="img" aria-label="Sol nascendo">🌅</span>
+
+          <h2 class="section__title">Amanhã de manhã pode ser diferente.</h2>
+
+          <p class="section__lead">
+            O app está a caminho da App Store. Quem está na lista entra antes de
+            todo mundo.
+          </p>
+
+          <div class="waitlist">
+            <form class="waitlist__form" action="#" method="post">
+              <label class="visually-hidden" for="email-final">Seu e-mail</label>
+              <input
+                class="waitlist__input"
+                id="email-final"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="Seu melhor e-mail"
+                required
+              />
+              <button class="button" type="submit">Quero minha vaga</button>
+            </form>
+
+            <p class="waitlist__note">
+              Sem spam. Um e-mail só, quando o app sair.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__clock">
+          <span class="footer__dot" aria-hidden="true"></span>
+          <span id="clock" class="footer__time">--:--</span>
+          <span class="footer__label">sua hora agora</span>
+        </div>
+
+        <p class="footer__wordmark" aria-hidden="true">Oração Diária</p>
+
+        <div class="footer__bar">
+          <span class="footer__meta">© 2026 Oração Diária · Feito no Brasil</span>
+          <nav class="footer__nav">
+            <a class="footer__link" href="#">Privacidade</a>
+            <a class="footer__link" href="mailto:dedsfelps2@gmail.com">Contato</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Relógio ao vivo: a página inteira fala de horário: mostrar o do próprio
+      // visitante é o detalhe que faz o rodapé parecer vivo.
+      (function () {
+        const el = document.getElementById("clock");
+        const tick = () => {
+          el.textContent = new Date().toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        };
+        tick();
+        setInterval(tick, 1000 * 15);
+      })();
+    </script>
   </body>
 </html>

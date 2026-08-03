@@ -362,6 +362,94 @@ body {
   }
 }
 
+/* ---------- Rodapé ---------- */
+
+.footer {
+  padding-block: var(--s5) var(--s4);
+  border-top: 1px solid var(--gray-light);
+}
+
+/* Relógio ao vivo */
+.footer__clock {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--s1);
+  font-size: var(--t-small);
+  color: var(--gray);
+}
+
+.footer__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  align-self: center;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.footer__time {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Assinatura: única exceção à escala de fonte, e só aqui. Escala com a tela
+   pra ocupar a largura do container sem quebrar linha. */
+.footer__wordmark {
+  margin-top: var(--s3);
+  font-size: clamp(48px, 13.5vw, 176px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.footer__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+  margin-top: var(--s4);
+  font-size: var(--t-micro);
+  color: var(--gray);
+}
+
+.footer__nav {
+  display: flex;
+  gap: var(--s3);
+}
+
+.footer__link {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--ink);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__bar {
+    flex-direction: column;
+    gap: var(--s1);
+    text-align: center;
+  }
+}
+
 /* ---------- Entrada ---------- */
 
 .reveal {
@@ -380,7 +468,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  .footer__dot {
     animation: none;
   }
 
