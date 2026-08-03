@@ -52,6 +52,31 @@ python3 scripts/send_campaign.py --assunto "Assunto" --html campanha.html
 O segundo comando roda em **modo seco**: conta os destinatários e para.
 Para enviar de verdade, acrescente `--confirmar`.
 
+## 4. E-mail de boas-vindas automático
+
+A Edge Function `supabase/functions/welcome-email` manda um e-mail assim que
+alguém entra na lista. Ela existe porque a chave do Resend **não pode** ficar na
+página: o site é estático e qualquer visitante leria a chave.
+
+Deploy (uma vez):
+
+```bash
+supabase functions deploy welcome-email --no-verify-jwt
+```
+
+```bash
+supabase secrets set RESEND_API_KEY="re_..." MAIL_FROM="Oração Diária <ola@seudominio.com>" WEBHOOK_SECRET="algo-longo-e-aleatorio"
+```
+
+Depois, no painel: **Database → Webhooks → Create a new hook**
+
+- Tabela: `public.waitlist` · Evento: `Insert`
+- Tipo: `HTTP Request` → `POST` na URL da função
+- Header: `x-webhook-secret` com o mesmo valor do `WEBHOOK_SECRET`
+
+O header não é opcional: sem ele, qualquer pessoa que descubra a URL dispara
+e-mails pela sua conta do Resend.
+
 ## Antes do primeiro envio real
 
 - **Verifique seu domínio no Resend** (SPF + DKIM). Sem isso, Gmail e Outlook
