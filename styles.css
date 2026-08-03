@@ -374,15 +374,62 @@ body {
 /* ---------- Rodapé ---------- */
 
 .footer {
-  padding-block: var(--s5) var(--s4);
+  padding-top: var(--s5);
   border-top: 1px solid var(--gray-light);
+  overflow: hidden;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--s2);
+}
+
+/* Card de marca: o azul vem do próprio ícone do app, não é cor nova. */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s5);
+  padding: var(--s4);
+  border-radius: var(--radius);
+  background: #4a9bff;
+}
+
+.footer__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
+}
+
+.footer__tagline {
+  font-size: var(--t-lead);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.footer__tagline span {
+  display: block;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s5);
+  padding: var(--s4);
+  border-radius: var(--radius);
+  background: var(--gray-bg);
 }
 
 /* Relógio ao vivo */
 .footer__clock {
   display: flex;
   align-items: baseline;
-  justify-content: center;
   gap: var(--s1);
   font-size: var(--t-small);
   color: var(--gray);
@@ -406,14 +453,17 @@ body {
 /* Assinatura: única exceção à escala de fonte, e só aqui. Escala com a tela
    pra ocupar a largura do container sem quebrar linha. */
 .footer__wordmark {
-  margin-top: var(--s3);
-  font-size: clamp(48px, 13.5vw, 176px);
+  margin-top: var(--s4);
+  /* Cortada pela base: some metade da altura da linha. */
+  margin-bottom: -0.24em;
+  font-size: clamp(56px, 16vw, 260px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.04em;
   text-align: center;
-  color: var(--ink);
+  color: var(--gray-bg);
   white-space: nowrap;
+  user-select: none;
 }
 
 .footer__bar {
@@ -421,7 +471,6 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: var(--s2);
-  margin-top: var(--s4);
   font-size: var(--t-micro);
   color: var(--gray);
 }
@@ -452,10 +501,22 @@ body {
 }
 
 @media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__brand {
+    gap: var(--s4);
+  }
+
+  .footer__panel {
+    gap: var(--s4);
+  }
+
   .footer__bar {
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--s1);
-    text-align: center;
   }
 }
 
