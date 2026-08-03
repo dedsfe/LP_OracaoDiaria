@@ -81,6 +81,15 @@ body {
   white-space: nowrap;
 }
 
+/* Ícone do app: única imagem da página. Raio proporcional ao squircle do iOS. */
+.app-icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto var(--s3);
+  border-radius: 22px;
+}
+
 /* Emoji — a única ilustração da página */
 .emoji {
   display: block;
