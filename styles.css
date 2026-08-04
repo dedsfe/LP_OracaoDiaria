@@ -533,6 +533,9 @@ body {
 
 .modal {
   width: min(440px, calc(100vw - 32px));
+  /* O reset global (* { margin: 0 }) mata o `margin: auto` que o <dialog>
+     usa pra se centralizar. Por isso ele volta aqui, explícito. */
+  margin: auto;
   padding: 0;
   border: none;
   border-radius: var(--radius);
