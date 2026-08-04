@@ -295,6 +295,32 @@
         setInterval(tick, 1000 * 15);
       })();
     </script>
+    <dialog class="modal" id="success-modal">
+      <div class="modal__card">
+        <button class="modal__close" type="button" aria-label="Fechar">✕</button>
+
+        <img class="modal__icon" src="app-icon.png" width="72" height="72" alt="" />
+
+        <h2 class="modal__title">Sua vaga está garantida.</h2>
+
+        <p class="modal__text">
+          Te aviso por e-mail assim que o app sair. Um e-mail só, sem enrolação.
+        </p>
+
+        <p class="modal__ask">
+          Quem você chamaria pra começar o dia junto com você?
+        </p>
+
+        <a class="button modal__whatsapp" id="share-whatsapp" href="#" target="_blank" rel="noopener">
+          Chamar alguém no WhatsApp
+        </a>
+
+        <button class="modal__copy" type="button" id="share-copy">
+          Copiar link
+        </button>
+      </div>
+    </dialog>
+
     <script src="config.js"></script>
     <script src="waitlist.js"></script>
   </body>

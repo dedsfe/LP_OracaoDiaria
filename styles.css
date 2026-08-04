@@ -529,6 +529,116 @@ body {
   }
 }
 
+/* ---------- Modal de sucesso ---------- */
+
+.modal {
+  width: min(440px, calc(100vw - 32px));
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.modal[open] {
+  animation: modal-in 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal__card {
+  position: relative;
+  padding: var(--s5) var(--s4) var(--s4);
+  text-align: center;
+}
+
+.modal__close {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--gray);
+  font-size: var(--t-small);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.modal__close:hover {
+  background: var(--gray-bg);
+}
+
+.modal__icon {
+  border-radius: 17px;
+  margin-bottom: var(--s3);
+}
+
+.modal__title {
+  font-size: var(--t-title);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.modal__text {
+  margin-top: var(--s2);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  color: var(--gray);
+}
+
+/* A pergunta é o pedido de indicação — o multiplicador de uma waitlist. */
+.modal__ask {
+  margin-top: var(--s4);
+  font-size: var(--t-body);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.modal__whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--s3);
+  text-decoration: none;
+}
+
+.modal__copy {
+  width: 100%;
+  min-height: 52px;
+  margin-top: var(--s1);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gray-bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--t-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.modal__copy:hover {
+  opacity: 0.75;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------- Entrada ---------- */
 
 .reveal {
