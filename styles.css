@@ -669,3 +669,103 @@ body {
     transform: none;
   }
 }
+
+/* Páginas legais (/termos, /privacidade)
+   Mesmos tokens da LP: coluna estreita, texto grande e muito respiro. Documento
+   legal que ninguém consegue ler é documento que não cumpre a função. */
+
+.legal {
+  padding: var(--s5) 0 var(--s6);
+}
+
+.legal .container {
+  max-width: 720px;
+}
+
+.legal__back {
+  display: inline-block;
+  margin-bottom: var(--s4);
+  font-size: var(--t-small);
+  color: var(--gray);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.legal__back:hover {
+  color: var(--ink);
+}
+
+.legal__title {
+  font-size: var(--t-title);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.legal__date {
+  margin-top: var(--s2);
+  font-size: var(--t-small);
+  color: var(--gray);
+}
+
+.legal__lead {
+  margin-top: var(--s4);
+  font-size: var(--t-lead);
+  line-height: 1.5;
+}
+
+.legal h2 {
+  margin-top: var(--s4);
+  margin-bottom: var(--s2);
+  font-size: var(--t-body);
+  letter-spacing: -0.01em;
+}
+
+.legal p,
+.legal li {
+  font-size: var(--t-body);
+  line-height: 1.65;
+  color: var(--gray);
+}
+
+.legal p + p {
+  margin-top: var(--s2);
+}
+
+.legal ul {
+  margin-top: var(--s2);
+  padding-left: var(--s3);
+}
+
+.legal li + li {
+  margin-top: var(--s1);
+}
+
+.legal strong {
+  color: var(--ink);
+}
+
+.legal a {
+  color: var(--ink);
+}
+
+.legal__footer {
+  padding: var(--s4) 0 var(--s5);
+  border-top: 1px solid var(--gray-light);
+}
+
+.legal__footer .container {
+  display: flex;
+  gap: var(--s3);
+  max-width: 720px;
+  font-size: var(--t-small);
+}
+
+.legal__footer a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.legal__footer a:hover {
+  color: var(--ink);
+}
