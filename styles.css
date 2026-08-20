@@ -1926,7 +1926,10 @@ body {
   .hero .app-icon,
   .hero__title,
   .hero__lead,
-  .hero .waitlist__form {
+  .hero .waitlist__form,
+  /* Quem limita a largura é o box, não o form: sem isto o campo fica
+     encostado à esquerda enquanto o resto do hero já centralizou. */
+  .hero .waitlist__box {
     margin-inline: auto;
   }
 }
@@ -2026,6 +2029,14 @@ body {
   pointer-events: none;
   z-index: 90;
   overflow: hidden;
+}
+
+/* No celular a faixa cai em cima dos vídeos: sobre imagem colorida o degrau
+   entre as camadas aparece como um retângulo borrado, não como fade. */
+@media (max-width: 899px) {
+  .bottom-page-blur {
+    display: none;
+  }
 }
 
 .progressive-blur-layer {
