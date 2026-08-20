@@ -31,6 +31,11 @@
 
     <link rel="icon" href="app-icon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <!-- LCP: o telefone do hero é desenhado no canvas por JS; sem preload ele só
+         começa a baixar depois do hero.js executar. -->
+    <link rel="preload" as="image" href="app-screen.webp" type="image/webp" fetchpriority="high" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -573,7 +578,10 @@
     <dialog class="modal" id="success-modal">
       <div class="modal__card">
         <!-- Imagem de fundo total com vinheta suave -->
-        <img class="modal__bg-img" src="modal-bg.jpg" alt="" aria-hidden="true" loading="lazy" />
+        <picture>
+          <source srcset="modal-bg.webp" type="image/webp" />
+          <img class="modal__bg-img" src="modal-bg.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1080" height="1920" />
+        </picture>
         <div class="modal__blur" aria-hidden="true"></div>
         <div class="modal__scrim" aria-hidden="true"></div>
 

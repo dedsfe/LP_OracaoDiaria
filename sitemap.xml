@@ -19,7 +19,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.oracaodiaria.space/oracoes/salmo-91</loc>
+    <loc>https://www.oracaodiaria.space/oracoes/oracao-da-noite</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oracaodiaria.space/oracoes/oracao-da-madrugada</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -31,7 +37,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.oracaodiaria.space/oracoes/oracao-de-gratidao</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oracaodiaria.space/oracoes/oracao-para-cura-e-saude</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oracaodiaria.space/oracoes/salmo-91</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oracaodiaria.space/oracoes/salmo-23</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oracaodiaria.space/oracoes/oracao-do-pai-nosso</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.oracaodiaria.space/oracoes/como-criar-o-habito-de-orar</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.oracaodiaria.space/oracoes/jejum-de-redes-sociais</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

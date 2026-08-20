@@ -1414,6 +1414,11 @@ body {
 }
 
 /* Imagem de fundo real */
+/* <picture> não pode virar item do flex do card — o img é quem se posiciona */
+.modal__card > picture {
+  display: contents;
+}
+
 .modal__bg-img {
   position: absolute;
   inset: 0;

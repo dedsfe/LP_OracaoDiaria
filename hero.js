@@ -462,8 +462,13 @@
 
   const pi = new Image();
   pi.onload = () => { phoneImg = pi; ready(); };
-  pi.onerror = ready;
-  pi.src = "app-screen.png";
+  // WebP tem ~3% do peso do PNG; o PNG fica só de rede de segurança.
+  pi.onerror = () => {
+    if (pi.dataset.fallback) return ready();
+    pi.dataset.fallback = "1";
+    pi.src = "app-screen.png";
+  };
+  pi.src = "app-screen.webp";
 
   let rt;
   function handleResize() {
