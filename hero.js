@@ -148,7 +148,7 @@
 
     if (wide) {
       const ph = Math.min(H * 0.82, 650);
-      const pw = ph * (884 / 1825);
+      const pw = ph * (750 / 1548);
       // Alinhado bem à direita no container largo (1140px)
       const containerLeft = Math.max(0, (W - Math.min(W, 1140)) / 2);
       const containerRight = containerLeft + Math.min(W, 1140);
@@ -162,13 +162,15 @@
       corridorTop = formBottom + 24;
     } else {
       const cb = content.getBoundingClientRect().bottom - r.top;
-      const ph = Math.max(280, Math.min(H - cb - 100, 480));
-      const pw = ph * (884 / 1825);
+      const spaceBelow = H - cb;
+      // Altura proporcional e com folga segura para o piso do canvas (floorY)
+      const ph = Math.min(380, Math.max(240, spaceBelow - 84));
+      const pw = ph * (750 / 1548);
       phone = {
         w: pw,
         h: ph,
-        x: W * 0.5 - pw / 2,
-        y: cb + 24,
+        x: Math.round(W * 0.5 - pw / 2),
+        y: Math.round(cb + 20),
       };
       corridorTop = phone.y + phone.h * 0.15;
     }
@@ -192,7 +194,13 @@
     // Ponto onde atinge o telefone: bem mais alto (entre 25% e 55% da altura do telefone)
     const yEnter = rand(phone.y + phone.h * 0.22, phone.y + phone.h * 0.52);
     // Nasce abaixo do formulário de e-mail e botão
-    const yStart = wide ? Math.min(floorY - iconSize - 12, formBottom + rand(28, 65)) : yEnter + rand(40, 100);
+    const yStart = wide
+      ? Math.min(floorY - iconSize - 12, formBottom + rand(28, 65))
+      : phone.y + rand(16, phone.h * 0.35);
+
+    const maxDrop = wide
+      ? DROP_MAX
+      : Math.min(DROP_MAX, Math.max(16, W - (phone.x + phone.w) - iconSize - 10));
 
     bodies.push({
       name,
@@ -205,7 +213,7 @@
       vx: rand(210, 265),
       vy: 0,
       phase: Math.random() * Math.PI * 2,
-      drop: rand(DROP_MIN, DROP_MAX),
+      drop: rand(DROP_MIN, Math.max(DROP_MIN + 4, maxDrop)),
       scale: 0.55,
     });
   }
@@ -458,7 +466,7 @@
   pi.src = "app-screen.png";
 
   let rt;
-  addEventListener("resize", () => {
+  function handleResize() {
     clearTimeout(rt);
     rt = setTimeout(() => {
       bodies.length = 0;
@@ -467,6 +475,23 @@
       piled = 0;
       layout();
       if (reduced) render();
-    }, 180);
-  });
+    }, 120);
+  }
+
+  addEventListener("resize", handleResize, { passive: true });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      layout();
+      if (reduced) render();
+    });
+  }
+
+  if (window.ResizeObserver && content) {
+    const ro = new ResizeObserver(() => {
+      layout();
+      if (reduced) render();
+    });
+    ro.observe(content);
+  }
 })();

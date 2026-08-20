@@ -9,7 +9,7 @@
 //   supabase secrets set RESEND_API_KEY=re_... MAIL_FROM="..." WEBHOOK_SECRET=...
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
-const MAIL_FROM = Deno.env.get("MAIL_FROM") ?? "Oração Diária <ola@oracaodiaria.app>";
+const MAIL_FROM = Deno.env.get("MAIL_FROM") ?? "Oração Diária <contato@oracaodiaria.space>";
 const WEBHOOK_SECRET = Deno.env.get("WEBHOOK_SECRET");
 
 const html = (email: string) => `
@@ -39,7 +39,7 @@ const html = (email: string) => `
 
   <p style="font-size:12px;line-height:1.4;color:#6e6e73;margin:0">
     Você recebeu isso porque se cadastrou com ${email}.
-    <a href="https://oracaodiaria.app/descadastro?email=${encodeURIComponent(email)}"
+    <a href="https://oracaodiaria.space/descadastro?email=${encodeURIComponent(email)}"
        style="color:#6e6e73">Sair da lista</a>.
   </p>
 </div>`;
