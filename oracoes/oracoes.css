@@ -1,0 +1,566 @@
+/* Oração Diária — Hub & Spoke Content Stylesheet (oracoes.css) */
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-serif: "New York", "Georgia", "Cambria", serif;
+  --font-hand: "Caveat", cursive, sans-serif;
+  
+  --bg-dark: #121214;
+  --bg-card: #1c1c1e;
+  --bg-card-hover: #262629;
+  --bg-accent-subtle: rgba(204, 235, 87, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(204, 235, 87, 0.3);
+  
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --text-muted: #6e6e73;
+  --accent: #cceb57;
+  --accent-ink: #111113;
+  --accent-hover: #bde042;
+  
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  
+  --max-w-content: 760px;
+  --max-w-hub: 1080px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.oracoes-body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.oracoes-container {
+  max-width: var(--max-w-hub);
+  margin-inline: auto;
+  padding: 0 20px;
+}
+
+.oracoes-article-container {
+  max-width: var(--max-w-content);
+  margin-inline: auto;
+  padding: 0 20px;
+}
+
+/* Header & Nav */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.site-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+
+.site-nav__brand:hover {
+  opacity: 0.8;
+}
+
+.site-nav__brand img {
+  border-radius: 8px;
+}
+
+.site-nav__cta {
+  background-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.site-nav__cta:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent);
+}
+
+.breadcrumbs span {
+  color: var(--border-subtle);
+}
+
+/* Hero Hub */
+.hub-hero {
+  text-align: center;
+  padding: 40px 0 60px;
+}
+
+.hub-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hub-hero__title {
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.hub-hero__subtitle {
+  font-size: clamp(16px, 2.5vw, 19px);
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Cluster Grid in Hub */
+.cluster-section {
+  margin-bottom: 56px;
+}
+
+.cluster-section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+}
+
+.cluster-section__title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.spoke-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
+}
+
+.spoke-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+  background-color: var(--bg-card-hover);
+}
+
+.spoke-card__meta {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.spoke-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.spoke-card__excerpt {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.spoke-card__footer {
+  font-size: 13px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+/* Article Styles (Spoke) */
+.article-header {
+  margin-bottom: 40px;
+}
+
+.article-header__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.article-header__category {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.article-header__title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.article-header__lead {
+  font-size: 19px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.article-content {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #e1e1e6;
+}
+
+.article-content p {
+  margin-bottom: 24px;
+}
+
+.article-content h2 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 48px 0 16px;
+  color: var(--text-primary);
+}
+
+.article-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 12px;
+  color: var(--text-primary);
+}
+
+.article-content ul, .article-content ol {
+  margin: 0 0 24px 24px;
+}
+
+.article-content li {
+  margin-bottom: 8px;
+}
+
+/* Scripture Box */
+.scripture-box {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 32px 0;
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ededed;
+}
+
+.scripture-box__ref {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Featured Prayer Card */
+.prayer-card {
+  background: linear-gradient(180deg, #1f1f24 0%, #17171a 100%);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin: 40px 0;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+.prayer-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.prayer-card__label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.prayer-card__copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.prayer-card__copy-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.prayer-card__body {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.8;
+  color: #ffffff;
+  white-space: pre-line;
+}
+
+/* Conversion Bridge App Box */
+.app-bridge-card {
+  background: linear-gradient(135deg, rgba(204, 235, 87, 0.12) 0%, rgba(28, 28, 30, 0.8) 100%);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin: 56px 0;
+  text-align: center;
+}
+
+.app-bridge-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(204, 235, 87, 0.25);
+}
+
+.app-bridge-card__title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.app-bridge-card__desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0 auto 24px;
+  line-height: 1.55;
+}
+
+.app-bridge-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.app-bridge-card__input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.app-bridge-card__input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  padding: 12px 18px;
+  color: var(--text-primary);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.app-bridge-card__input:focus {
+  border-color: var(--accent);
+}
+
+.app-bridge-card__btn {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.app-bridge-card__btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.app-bridge-card__note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Related Spokes */
+.related-spokes {
+  margin: 64px 0 40px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.related-spokes__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.related-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+}
+
+.related-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.related-card__link {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 40px 0;
+  margin-top: 80px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.site-footer__links {
+  display: flex;
+  gap: 20px;
+}
+
+.site-footer__links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer__links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .app-bridge-card__input-row {
+    flex-direction: column;
+  }
+  .app-bridge-card {
+    padding: 24px 18px;
+  }
+  .prayer-card {
+    padding: 22px 18px;
+  }
+}

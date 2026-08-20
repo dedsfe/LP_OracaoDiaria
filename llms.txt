@@ -34,6 +34,11 @@ app de oração, oração da manhã, oração diária, app cristão, bloquear ce
 ## Links
 
 - [Página principal](https://www.oracaodiaria.space): Landing page com waitlist para acesso antecipado ao app.
+- [Biblioteca de Orações](https://www.oracaodiaria.space/oracoes): Diretório central de orações bíblicas e devocionais.
+- [Oração da Manhã](https://www.oracaodiaria.space/oracoes/oracao-da-manha): Oração guiada e princípios para começar o dia com Deus.
+- [Salmo 91 Completo](https://www.oracaodiaria.space/oracoes/salmo-91): Oração de proteção divina e estudo de refúgio.
+- [Oração para Ansiedade](https://www.oracaodiaria.space/oracoes/oracao-para-ansiedade): Oração para acalmar a mente e o coração.
+- [Como Criar o Hábito de Orar](https://www.oracaodiaria.space/oracoes/como-criar-o-habito-de-orar): Guia prático de consistência espiritual.
 - [Termos de Uso](https://www.oracaodiaria.space/termos): Termos e condições do aplicativo.
 - [Política de Privacidade](https://www.oracaodiaria.space/privacidade): Como tratamos os dados dos usuários.
 - [Contato](mailto:contato@oracaodiaria.space): E-mail de contato.
