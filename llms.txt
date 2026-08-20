@@ -1,0 +1,34 @@
+# Oração Diária
+
+> O Oração Diária é um app para iOS que bloqueia seus apps pela manhã até você fazer sua oração. Sem depender da sua força de vontade.
+
+## O que é
+
+O Oração Diária bloqueia apps como Instagram, TikTok, WhatsApp e YouTube pela manhã usando o Tempo de Tela do iOS. O usuário escolhe um propósito de oração, define o tempo e os dias. Ao concluir a oração, o celular volta ao normal. Nenhum dado sobre quais apps foram bloqueados sai do aparelho.
+
+## Como funciona
+
+1. Você escolhe o propósito da oração, o tempo e os dias da semana.
+2. Na manhã seguinte, os apps escolhidos ficam bloqueados.
+3. Você ora com música ambiente de louvor. Ao concluir, o celular destrava.
+
+## Dados
+
+- O brasileiro passa em média 3h32 por dia em redes sociais, o maior tempo do mundo.
+- A seleção de apps do Tempo de Tela nunca sai do dispositivo do usuário.
+- Ligações e chamadas de emergência nunca são bloqueadas.
+
+## Perguntas frequentes
+
+- **E se acontecer uma emergência?** Ligações e chamadas de emergência nunca são bloqueadas. Você escolhe quais apps entram no bloqueio.
+- **Vocês veem o que eu uso no celular?** Não. O bloqueio roda sobre o Tempo de Tela do iOS, a seleção de apps fica no seu aparelho.
+- **Dá pra burlar?** Dá. Ninguém prende seu celular. Mas entre o impulso e o feed passa a existir uma pergunta.
+- **É católico ou evangélico?** Os dois. O app não segue uma denominação: ele abre o espaço e o tempo.
+- **Vai ser pago?** A oração da manhã com bloqueio é gratuita e vai continuar assim. Existirão recursos extras pagos.
+
+## Links
+
+- Site: https://www.oracaodiaria.space
+- Termos: https://www.oracaodiaria.space/termos
+- Privacidade: https://www.oracaodiaria.space/privacidade
+- Contato: contato@oracaodiaria.space

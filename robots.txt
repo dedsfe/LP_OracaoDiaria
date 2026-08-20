@@ -1,0 +1,5 @@
+# Oração Diária — oracaodiaria.space
+User-agent: *
+Allow: /
+
+Sitemap: https://www.oracaodiaria.space/sitemap.xml

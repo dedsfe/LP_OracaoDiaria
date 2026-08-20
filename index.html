@@ -8,6 +8,27 @@
       name="description"
       content="O Oração Diária bloqueia seu celular pela manhã até você orar. Entre na lista e saiba quando o app sair."
     />
+
+    <!-- SEO: Canonical -->
+    <link rel="canonical" href="https://www.oracaodiaria.space/" />
+
+    <!-- SEO: Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oração Diária" />
+    <meta property="og:title" content="Oração Diária — comece o dia com Deus" />
+    <meta property="og:description" content="Seu celular só abre depois da oração. O app bloqueia seus apps pela manhã até você orar. Entre na lista de acesso antecipado." />
+    <meta property="og:url" content="https://www.oracaodiaria.space/" />
+    <meta property="og:image" content="https://www.oracaodiaria.space/og.jpg" />
+    <meta property="og:image:width" content="1376" />
+    <meta property="og:image:height" content="768" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Oração Diária — comece o dia com Deus" />
+    <meta name="twitter:description" content="Seu celular só abre depois da oração. O app bloqueia seus apps pela manhã até você orar." />
+    <meta name="twitter:image" content="https://www.oracaodiaria.space/og.jpg" />
+
     <link rel="icon" href="app-icon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,6 +41,101 @@
     <script src="hero.js" defer></script>
     <script src="statement.js" defer></script>
     <script src="faq-chat.js" defer></script>
+
+    <!-- SEO: JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.oracaodiaria.space/#org",
+          "name": "Oração Diária",
+          "url": "https://www.oracaodiaria.space",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.oracaodiaria.space/app-icon.png",
+            "width": 512,
+            "height": 512
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contato@oracaodiaria.space",
+            "contactType": "customer service",
+            "availableLanguage": "pt-BR"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.oracaodiaria.space/#website",
+          "name": "Oração Diária",
+          "url": "https://www.oracaodiaria.space",
+          "publisher": { "@id": "https://www.oracaodiaria.space/#org" },
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.oracaodiaria.space/#app",
+          "name": "Oração Diária",
+          "operatingSystem": "iOS",
+          "applicationCategory": "LifestyleApplication",
+          "description": "O Oração Diária bloqueia seus apps pela manhã até você fazer sua oração. Sem depender da sua força de vontade.",
+          "image": "https://www.oracaodiaria.space/app-icon.png",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+          },
+          "creator": { "@id": "https://www.oracaodiaria.space/#org" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "E se acontecer uma emergência?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ligações e chamadas de emergência nunca são bloqueadas. E é você quem escolhe, um por um, quais apps entram no bloqueio da manhã."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O app Oração Diária vê o que eu uso no celular?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não, a Apple não permite. O bloqueio roda sobre o Tempo de Tela do iOS: a sua seleção de apps fica no seu aparelho, e nem nós conseguimos ver quais você escolheu."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Dá pra burlar o bloqueio do Oração Diária?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dá. Ninguém prende seu celular. Mas entre o impulso e o feed passa a existir uma pergunta, e é ali que a maioria dos dias muda."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O Oração Diária é católico ou evangélico?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Os dois. O app não escreve a oração por você nem segue uma denominação: ele abre o espaço e o tempo. A oração é sua, do seu jeito."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O app Oração Diária vai ser pago?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A oração da manhã com bloqueio é gratuita, e vai continuar assim. Existirão recursos extras pagos, mas o essencial não fica atrás de paywall."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <main>
