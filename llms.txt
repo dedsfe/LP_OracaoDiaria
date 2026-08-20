@@ -4,19 +4,24 @@
 
 ## O que é
 
-O Oração Diária bloqueia apps como Instagram, TikTok, WhatsApp e YouTube pela manhã usando o Tempo de Tela do iOS. O usuário escolhe um propósito de oração, define o tempo e os dias. Ao concluir a oração, o celular volta ao normal. Nenhum dado sobre quais apps foram bloqueados sai do aparelho.
+O Oração Diária é um aplicativo cristão de oração da manhã para iPhone (iOS). Ele bloqueia apps como Instagram, TikTok, WhatsApp e YouTube pela manhã usando o Tempo de Tela do iOS. O usuário escolhe um propósito de oração, define o tempo e os dias. Ao concluir a oração, o celular volta ao normal. Nenhum dado sobre quais apps foram bloqueados sai do aparelho.
+
+## Palavras-chave
+
+app de oração, oração da manhã, oração diária, app cristão, bloquear celular para orar, hábito de oração, devocional matinal, app evangélico de oração, app católico de oração, tempo de oração, bloqueio de apps, jejum digital, desintoxicação digital cristã, oração com música, louvor da manhã
 
 ## Como funciona
 
 1. Você escolhe o propósito da oração, o tempo e os dias da semana.
-2. Na manhã seguinte, os apps escolhidos ficam bloqueados.
-3. Você ora com música ambiente de louvor. Ao concluir, o celular destrava.
+2. Na manhã seguinte, os apps escolhidos ficam bloqueados via Tempo de Tela do iOS.
+3. Você ora com música ambiente de louvor. Ao concluir, o celular destrava e mais um dia entra na sua sequência.
 
 ## Dados
 
 - O brasileiro passa em média 3h32 por dia em redes sociais, o maior tempo do mundo.
 - A seleção de apps do Tempo de Tela nunca sai do dispositivo do usuário.
 - Ligações e chamadas de emergência nunca são bloqueadas.
+- O app é gratuito para a funcionalidade principal de oração da manhã com bloqueio.
 
 ## Perguntas frequentes
 
@@ -28,7 +33,7 @@ O Oração Diária bloqueia apps como Instagram, TikTok, WhatsApp e YouTube pela
 
 ## Links
 
-- Site: https://www.oracaodiaria.space
-- Termos: https://www.oracaodiaria.space/termos
-- Privacidade: https://www.oracaodiaria.space/privacidade
-- Contato: contato@oracaodiaria.space
+- [Página principal](https://www.oracaodiaria.space): Landing page com waitlist para acesso antecipado ao app.
+- [Termos de Uso](https://www.oracaodiaria.space/termos): Termos e condições do aplicativo.
+- [Política de Privacidade](https://www.oracaodiaria.space/privacidade): Como tratamos os dados dos usuários.
+- [Contato](mailto:contato@oracaodiaria.space): E-mail de contato.
