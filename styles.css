@@ -8,6 +8,9 @@
   --gray: #6e6e73;
   --gray-light: #d2d2d7;
   --gray-bg: #f5f5f7;
+  --accent: #cceb57;
+  --accent-ink: #111113;
+  --accent-hover: #bde042;
 
   /* Tipografia */
   --t-hero: 64px;
@@ -88,6 +91,7 @@ body {
   height: 96px;
   margin: 0 auto var(--s3);
   border-radius: 22px;
+  box-shadow: 0 12px 32px -4px rgba(91, 148, 235, 0.28), 0 4px 12px rgba(91, 148, 235, 0.16);
 }
 
 /* Emoji — a única ilustração da página */
@@ -138,6 +142,153 @@ body {
   max-width: 20ch;
   margin-inline: auto;
 }
+
+/* Container estendido */
+.container--wide {
+  max-width: 1060px;
+}
+
+/* ---------- Statement Manifesto (Seção 2) ---------- */
+
+.section--statement {
+  padding-top: clamp(140px, 18vh, 220px);
+  padding-bottom: clamp(120px, 16vh, 200px);
+}
+
+.statement {
+  max-width: 880px;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+/* Grifos: o sublinhado grosso em verde é o mesmo destaque do botão, e é ele
+   que puxa o olho pro fim da frase. */
+.u-mark {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.1em;
+  text-decoration-skip-ink: none;
+}
+
+.u-thin {
+  text-decoration: underline;
+  text-decoration-color: var(--gray-light);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.statement__title {
+  font-size: clamp(30px, 4.4vw, 50px);
+  font-weight: 600;
+  /* Emoji e ícones inline engordam a linha: sem folga elas se tocam. */
+  line-height: 1.7;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Palavras individuais animadas via scroll */
+.statement__word {
+  display: inline-block;
+  opacity: var(--word-opacity, 0.18);
+  color: var(--ink);
+  transition: opacity 80ms ease-out;
+  will-change: opacity;
+}
+
+/* Destaque na mesma manuscrita do header (Caveat) */
+.statement__serif {
+  font-family: "Caveat", "Bradley Hand", "Segoe Script", cursive;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.34em;
+  letter-spacing: 0;
+  display: inline;
+  color: var(--ink);
+}
+
+.statement__serif .statement__highlight {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+  font-style: normal;
+  font-size: 0.86em;
+  letter-spacing: -0.02em;
+}
+
+
+
+/* Emojis e Logos inline no texto */
+.inline-badge {
+  display: inline-block;
+  width: 0.95em;
+  height: 0.95em;
+  vertical-align: -0.14em;
+  border-radius: 0.22em;
+  box-shadow: 0 4px 16px rgba(91, 148, 235, 0.32), 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-inline: 0.08em;
+  opacity: var(--word-opacity, 0.18);
+  filter: grayscale(calc(1 - var(--word-p, 0)));
+  transition: transform 180ms ease, filter 120ms ease;
+}
+
+.inline-badge:hover {
+  transform: scale(1.12);
+}
+
+.inline-emoji {
+  display: inline-block;
+  font-size: 0.92em;
+  line-height: 1;
+  vertical-align: -0.06em;
+  margin-inline: 0.06em;
+  opacity: var(--word-opacity, 0.18);
+  filter: grayscale(calc(1 - var(--word-p, 0)));
+}
+
+.inline-stack {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: -0.16em;
+  margin-inline: 0.12em;
+  opacity: var(--word-opacity, 0.18);
+  filter: grayscale(calc(1 - var(--word-p, 0)));
+  transition: opacity 80ms ease-out, filter 120ms ease;
+}
+
+.inline-stack img {
+  width: 0.94em;
+  height: 0.94em;
+  border-radius: 0.22em;
+  margin-left: -0.28em;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  border: 2px solid var(--white);
+  transition: transform 180ms ease, margin 180ms ease;
+}
+
+.inline-stack img:first-child {
+  margin-left: 0;
+}
+
+.inline-stack:hover img {
+  margin-left: -0.08em;
+}
+
+.statement__highlight {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gray-bg);
+  padding: 0.04em 0.34em;
+  border-radius: 0.25em;
+  color: var(--ink);
+  font-weight: 600;
+  gap: 0.12em;
+  opacity: var(--word-opacity, 0.18);
+  filter: grayscale(calc(1 - var(--word-p, 0)));
+  transition: opacity 80ms ease-out, filter 120ms ease;
+}
+
+
 
 .section__lead {
   font-size: var(--t-lead);
@@ -191,71 +342,594 @@ body {
   text-decoration-color: var(--gray);
 }
 
-/* ---------- Passos (como funciona) ---------- */
+/* ---------- Como funciona ---------- */
 
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s3);
-  margin: var(--s5) auto 0;
-  list-style: none;
-  text-align: left;
+.section--how-it-works {
+  padding-block: clamp(120px, 14vh, 180px);
 }
 
-.step {
-  padding: var(--s4);
-  border-radius: var(--radius);
-  background: var(--gray-bg);
+/* Abertura em três tempos: deixa cinza, frase à mão, título em SF. É um bloco
+   só — o antigo remate do manifesto virou a primeira linha daqui. */
+.leadin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
 }
 
-/* 28px: tamanho de emoji inline. O 56px fica reservado ao destaque de seção. */
-.step__emoji {
-  display: block;
-  font-size: 28px;
-  line-height: 1;
-  margin-bottom: var(--s2);
-}
-
-.step__title {
-  font-size: var(--t-body);
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--ink);
-}
-
-.step__text {
-  margin-top: var(--s1);
-  font-size: var(--t-small);
+.leadin__eyebrow {
+  font-size: var(--t-lead);
   line-height: 1.4;
   color: var(--gray);
 }
 
-/* ---------- Objeções ---------- */
+.leadin__hand {
+  margin-top: clamp(16px, 2.4vh, 28px);
+  font-family: "Caveat", "Bradley Hand", "Segoe Script", cursive;
+  font-weight: 600;
+  font-size: clamp(42px, 6.4vw, 76px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--ink);
+  text-wrap: balance;
+}
 
-.faq {
-  max-width: 640px;
-  margin: var(--s5) auto 0;
+.leadin__title {
+  margin-top: clamp(28px, 4vh, 48px);
+}
+
+/* ---------- Passos (como funciona): vídeo real + copy, lados alternados --- */
+
+.features {
+  display: grid;
+  gap: clamp(72px, 11vh, 132px);
+  margin: clamp(80px, 12vh, 140px) auto 0;
+  list-style: none;
   text-align: left;
 }
 
-.faq__item + .faq__item {
-  margin-top: var(--s4);
-  padding-top: var(--s4);
-  border-top: 1px solid var(--gray-light);
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
 }
 
-.faq__q {
-  font-size: var(--t-body);
+/* Só no desktop o vídeo troca de lado: no mobile todos empilham vídeo → texto. */
+@media (min-width: 861px) {
+  .feature--reverse .feature__media {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .feature--reverse .feature__body {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.feature__media {
+  display: flex;
+  justify-content: center;
+}
+
+/* Moldura do celular: a gravação já vem sem bezel, o raio grande devolve
+   o formato de tela de iPhone sem desenhar um mockup por cima. */
+.feature__phone {
+  position: relative;
+  width: 100%;
+  max-width: 288px;
+  aspect-ratio: 1000 / 2160;
+  border-radius: 42px;
+  overflow: hidden;
+  background: var(--accent-ink);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 28px 72px -16px rgba(0, 0, 0, 0.24),
+    0 8px 24px -6px rgba(0, 0, 0, 0.10);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.feature__phone:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 36px 88px -18px rgba(0, 0, 0, 0.28),
+    0 12px 32px -8px rgba(0, 0, 0, 0.12);
+}
+
+.feature__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.feature__body {
+  max-width: 30ch;
+}
+
+/* Manuscrita — a mesma do statement, pra headline soar como recado à mão. */
+.feature__title {
+  font-family: "Caveat", "Bradley Hand", "Segoe Script", cursive;
   font-weight: 600;
-  line-height: 1.35;
+  font-size: clamp(38px, 4.4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: 0;
   color: var(--ink);
 }
 
-.faq__a {
-  margin-top: var(--s1);
-  font-size: var(--t-body);
-  line-height: 1.5;
+.feature__text {
+  margin-top: var(--s2);
+  font-size: var(--t-lead);
+  /* Folgado porque os emojis grandes e girados invadem a entrelinha. */
+  line-height: 1.7;
   color: var(--gray);
+}
+
+/* Emoji e logo dentro do parágrafo: mesma linguagem do statement, só que
+   sempre opacos (lá a opacidade é animada pelo scroll). */
+.feature__ico {
+  display: inline-block;
+  font-size: 1.55em;
+  line-height: 1;
+  vertical-align: -0.24em;
+  margin-inline: 0.06em;
+}
+
+/* Cada emoji do parágrafo cai num ângulo e numa altura diferente: colados na
+   linha de base eles parecem ícone de sistema, tortos parecem colados à mão. */
+.feature__text .feature__ico:nth-of-type(1) {
+  transform: rotate(-10deg) translateY(-3px);
+}
+
+.feature__text .feature__ico:nth-of-type(2) {
+  transform: rotate(7deg) translateY(4px);
+}
+
+.feature__text .feature__ico:nth-of-type(3) {
+  transform: rotate(-6deg) translateY(-2px);
+}
+
+.feature__logo {
+  display: inline-block;
+  width: 1.16em;
+  height: 1.16em;
+  vertical-align: -0.26em;
+  border-radius: 0.28em;
+  margin-inline: 0.06em;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  transition: transform 180ms ease;
+}
+
+.feature__logo:hover {
+  transform: scale(1.12);
+}
+
+/* Abaixo de 861px as duas colunas ficariam estreitas demais: empilha e centra. */
+@media (max-width: 860px) {
+  .features {
+    gap: var(--s6);
+  }
+
+  .feature {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: var(--s4);
+    text-align: center;
+  }
+
+  .feature__body {
+    max-width: 34ch;
+  }
+}
+
+/* ---------- Fecho: o amanhecer ---------- */
+
+.section--close {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: clamp(120px, 16vh, 190px);
+  padding-bottom: clamp(88px, 11vh, 132px);
+}
+
+.sunrise {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Halo largo: o céu clareando. Fica sempre, o disco é que sobe. */
+.sunrise__glow {
+  position: absolute;
+  left: 50%;
+  bottom: 27%;
+  width: min(1200px, 130vw);
+  height: min(620px, 62vh);
+  translate: -50% 34%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(255, 205, 148, 0.3) 0%,
+    rgba(255, 222, 180, 0.16) 34%,
+    rgba(255, 240, 224, 0.07) 60%,
+    rgba(255, 255, 255, 0) 78%
+  );
+}
+
+/* O palco termina na linha do horizonte: o que passa dela é recortado, então
+   o sol emerge pela metade em vez de flutuar como bola no meio do texto. */
+.sunrise__stage {
+  position: absolute;
+  inset: 0 0 27% 0;
+  overflow: hidden;
+}
+
+.sunrise__disc {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(620px, 76vw);
+  aspect-ratio: 1;
+  translate: -50% 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 248, 235, 0.92) 0%,
+    rgba(255, 226, 185, 0.7) 36%,
+    rgba(255, 202, 141, 0.48) 58%,
+    rgba(255, 194, 128, 0) 74%
+  );
+  filter: blur(18px);
+}
+
+/* Só a terra entra no filtro: é a LINHA que precisa tremer, não o sol.
+   O haze fica de fora porque backdrop-filter não sobrevive dentro de filter. */
+.sunrise__land {
+  position: absolute;
+  inset: 0;
+  filter: url(#heat-haze);
+}
+
+/* Chão: o calor que sobra abaixo da linha. Sem ele, o horizonte vira régua. */
+.sunrise__ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 27%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 214, 170, 0.28) 0%,
+    rgba(255, 230, 200, 0.12) 38%,
+    rgba(255, 255, 255, 0) 82%
+  );
+}
+
+/* O <svg> só existe pra hospedar o filtro: não ocupa espaço. */
+.sunrise__filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Faixa de calor: as camadas borram o que já foi pintado atrás (sol e chão),
+   nunca o texto — o .sunrise inteiro vive em z-index -1. */
+.sunrise__haze {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 27%;
+  height: 176px;
+  translate: 0 50%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sunrise__haze i {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) var(--m1),
+    rgba(0, 0, 0, 1) var(--m2),
+    rgba(0, 0, 0, 1) var(--m3),
+    rgba(0, 0, 0, 0) var(--m4)
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) var(--m1),
+    rgba(0, 0, 0, 1) var(--m2),
+    rgba(0, 0, 0, 1) var(--m3),
+    rgba(0, 0, 0, 0) var(--m4)
+  );
+}
+
+/* Linha do horizonte: some nas pontas pra não virar borda de caixa. */
+.sunrise__horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 27%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(150, 96, 40, 0) 0%,
+    rgba(150, 96, 40, 0.34) 22%,
+    rgba(150, 96, 40, 0.34) 78%,
+    rgba(150, 96, 40, 0) 100%
+  );
+}
+
+/* O sol sobe conforme a seção atravessa a tela. Sem JS: timeline de scroll. */
+@supports (animation-timeline: view()) {
+  .sunrise__disc {
+    animation: sun-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 62%;
+  }
+
+  .sunrise__glow {
+    animation: sun-glow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 55%;
+  }
+}
+
+/* Sem suporte a scroll-timeline o sol já nasceu: nada de céu vazio. */
+@supports not (animation-timeline: view()) {
+  .sunrise__disc {
+    translate: -50% 55%;
+  }
+}
+
+@keyframes sun-rise {
+  from {
+    translate: -50% 100%;
+  }
+  to {
+    translate: -50% 55%;
+  }
+}
+
+@keyframes sun-glow {
+  from {
+    translate: -50% 34%;
+    opacity: 0.3;
+  }
+  to {
+    translate: -50% 6%;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunrise__disc,
+  .sunrise__glow {
+    animation: none;
+  }
+
+  .sunrise__disc {
+    translate: -50% 55%;
+  }
+}
+
+.close__title {
+  font-size: var(--t-title);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+/* A segunda linha é a promessa: vai na manuscrita, e maior que o resto. */
+.close__hand {
+  display: block;
+  margin-top: clamp(8px, 1.4vh, 16px);
+  font-family: "Caveat", "Bradley Hand", "Segoe Script", cursive;
+  font-weight: 600;
+  font-size: clamp(46px, 6.8vw, 82px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Sobre o céu, o form precisa de fundo próprio pra não perder contraste. */
+.close .waitlist {
+  /* Ar extra: é nesse vão que a linha do horizonte passa. */
+  margin-top: var(--s5);
+}
+
+/* No celular o form empilha e fica mais alto: o horizonte sobe junto, senão
+   a linha corta o campo de e-mail no meio. */
+@media (max-width: 580px) {
+  .sunrise__stage {
+    inset: 0 0 40% 0;
+  }
+
+  .sunrise__ground,
+  .sunrise__horizon,
+  .sunrise__haze {
+    bottom: 40%;
+  }
+
+  .sunrise__haze {
+    height: 96px;
+  }
+
+  .sunrise__ground {
+    bottom: 0;
+    height: 40%;
+  }
+
+  .sunrise__glow {
+    bottom: 40%;
+  }
+}
+
+.close .waitlist__box {
+  max-width: 490px;
+  margin-inline: auto;
+}
+
+.close .waitlist__form {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(29, 29, 31, 0.1);
+  box-shadow: 0 12px 40px -12px rgba(120, 80, 20, 0.18);
+}
+
+/* ---------- Objeções em forma de conversa ---------- */
+
+.chat {
+  max-width: 680px;
+  margin: var(--s6) auto 0;
+  text-align: left;
+}
+
+.chat__turn + .chat__turn {
+  margin-top: clamp(48px, 6vh, 72px);
+}
+
+/* A dúvida chega em bolha, encostada à esquerda. */
+.chat__q {
+  display: flex;
+}
+
+.chat__bubble {
+  position: relative;
+  max-width: 74%;
+  padding: 14px 22px;
+  border-radius: 22px;
+  background: var(--gray-bg);
+  color: var(--ink);
+  font-size: var(--t-lead);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(14px) scale(0.94);
+  transform-origin: 0 100%;
+  /* Spring curto: é o "pop" da bolha do iMessage, sem o quique exagerado. */
+  transition: opacity 260ms ease, transform 420ms cubic-bezier(0.2, 1.5, 0.4, 1);
+}
+
+/* Cauda: duas curvas recortadas, a segunda pinta o fundo por cima. */
+.chat__bubble::before,
+.chat__bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 18px;
+}
+
+.chat__bubble::before {
+  left: -7px;
+  width: 20px;
+  background: var(--gray-bg);
+  border-bottom-right-radius: 16px;
+}
+
+.chat__bubble::after {
+  left: -20px;
+  width: 20px;
+  background: var(--white);
+  border-bottom-right-radius: 12px;
+}
+
+.chat__turn.is-in .chat__bubble {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* A resposta não tem bolha: é texto solto do outro lado, pra sobrar ar. */
+.chat__a {
+  max-width: 76%;
+  margin-left: auto;
+  margin-top: var(--s3);
+}
+
+.chat__text {
+  font-size: var(--t-body);
+  line-height: 1.55;
+  color: var(--gray);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 420ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chat__turn.is-answered .chat__text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* "•••" — vive só entre a bolha e a resposta. */
+.chat__typing {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  height: 20px;
+}
+
+.chat__turn.is-typing .chat__typing {
+  display: inline-flex;
+}
+
+.chat__typing i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gray-light);
+  animation: chat-dot 1s infinite ease-in-out;
+}
+
+.chat__typing i:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.chat__typing i:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes chat-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat__bubble,
+  .chat__text {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .chat__typing {
+    display: none !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .chat__bubble {
+    max-width: 88%;
+    font-size: var(--t-body);
+  }
+
+  .chat__a {
+    max-width: 92%;
+  }
 }
 
 /* Frase de remate: mesma medida do lead, mas em preto — é ela que vira a chave. */
@@ -273,63 +947,226 @@ body {
   margin-top: var(--s4);
 }
 
-/* ---------- Formulário de waitlist ---------- */
+/* ---------- Formulário de waitlist integrado & 3 Estados ---------- */
 
 .waitlist {
   margin-top: var(--s4);
 }
 
+.waitlist__box {
+  max-width: 490px;
+  position: relative;
+}
+
 .waitlist__form {
   display: flex;
-  gap: var(--s1);
-  max-width: 480px;
-  margin-inline: auto;
+  align-items: center;
+  gap: 6px;
+  background: var(--gray-bg);
+  border: 1px solid rgba(210, 210, 215, 0.8);
+  border-radius: var(--radius-pill);
+  padding: 6px 6px 6px 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all var(--transition);
+}
+
+.waitlist__form:focus-within {
+  border-color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--ink), 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.waitlist__input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.waitlist__appstore-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--ink);
+  opacity: 0.55;
+  flex-shrink: 0;
+  transition: opacity var(--transition);
+}
+
+.waitlist__form:focus-within .waitlist__appstore-icon {
+  opacity: 0.95;
 }
 
 .waitlist__input {
   flex: 1;
-  /* min-height, não height: em flex-column o flex-basis do `flex: 1`
-     sobrescreveria a altura e esmagaria o campo. */
-  min-height: 52px;
-  padding-inline: var(--s3);
   border: none;
-  border-radius: var(--radius-pill);
-  background: var(--gray-bg);
+  background: transparent;
   color: var(--ink);
   font-family: inherit;
   font-size: var(--t-body);
+  outline: none;
+  min-height: 40px;
+  -webkit-text-fill-color: var(--ink);
+}
+
+/* Evita que o preenchimento automático do Chrome/Safari tinja o input de azul */
+.waitlist__input:-webkit-autofill,
+.waitlist__input:-webkit-autofill:hover,
+.waitlist__input:-webkit-autofill:focus,
+.waitlist__input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  background-color: transparent !important;
 }
 
 .waitlist__input::placeholder {
-  color: var(--gray-light);
+  color: var(--gray);
+  opacity: 0.55;
 }
 
-.waitlist__input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ink);
-}
-
-.button {
-  min-height: 52px;
-  padding-inline: var(--s4);
+.waitlist__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding-inline: 20px;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--ink);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--accent-ink);
   font-family: inherit;
-  font-size: var(--t-body);
+  font-size: var(--t-small);
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition: opacity var(--transition);
+  box-shadow: 0 2px 10px rgba(204, 235, 87, 0.4);
+  transition: all var(--transition);
+  position: relative;
 }
 
-.button:hover {
+.waitlist__btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(204, 235, 87, 0.55);
+}
+
+.waitlist__btn:active {
+  transform: scale(0.97);
+}
+
+.button__icon {
+  font-size: 14px;
+  transition: transform var(--transition);
+}
+
+.waitlist__btn:hover .button__icon {
+  transform: translateX(3px);
+}
+
+/* ESTADO 2: Carregando */
+.button__spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(17, 17, 19, 0.2);
+  border-top-color: var(--accent-ink);
+  border-radius: 50%;
+  animation: waitlistSpin 0.7s linear infinite;
+}
+
+.waitlist__form--loading .button__text,
+.waitlist__form--loading .button__icon {
+  display: none;
+}
+
+.waitlist__form--loading .button__spinner {
+  display: inline-block;
+}
+
+.waitlist__form--loading .waitlist__btn {
+  pointer-events: none;
   opacity: 0.85;
 }
 
-.button:active {
-  transform: scale(0.97);
+@keyframes waitlistSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ESTADO 3: Card de Confirmação In-place */
+.waitlist__success {
+  background: var(--gray-bg);
+  border: 1px solid rgba(204, 235, 87, 0.6);
+  border-radius: 20px;
+  padding: var(--s3);
+  text-align: left;
+  animation: successSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes successSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.waitlist__success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(204, 235, 87, 0.25);
+  color: var(--ink);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  margin-bottom: var(--s1);
+}
+
+.waitlist__success-check {
+  font-weight: 700;
+}
+
+.waitlist__success-title {
+  font-size: var(--t-body);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.waitlist__success-desc {
+  font-size: var(--t-small);
+  color: var(--gray);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.waitlist__success-actions {
+  margin-top: var(--s2);
+}
+
+.waitlist__share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-small);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent);
+  transition: all var(--transition);
+}
+
+.waitlist__share-btn:hover {
+  text-decoration-color: var(--ink);
 }
 
 .waitlist__note--done {
@@ -338,7 +1175,7 @@ body {
 }
 
 .waitlist__note--error {
-  color: var(--ink);
+  color: #d93025;
 }
 
 .waitlist__note {
@@ -354,25 +1191,31 @@ body {
     padding-block: var(--s5);
   }
 
+@media (max-width: 580px) {
   .waitlist__form {
     flex-direction: column;
+    padding: 8px;
+    border-radius: 24px;
   }
 
-  .waitlist__input,
-  .button {
-    flex: none;
+  .waitlist__input-wrap {
     width: 100%;
+    padding: 4px 8px;
   }
+
+  .waitlist__btn {
+    width: 100%;
+    min-height: 48px;
+  }
+}
 
   .proof {
     grid-template-columns: 1fr;
     gap: var(--s2);
   }
 
-  .steps {
-    grid-template-columns: 1fr;
-    gap: var(--s2);
-    margin-top: var(--s4);
+  .features {
+    margin-top: var(--s5);
   }
 
   .faq {
@@ -529,106 +1372,241 @@ body {
   }
 }
 
-/* ---------- Modal de sucesso ---------- */
+/* ---------- Modal de Sucesso (Glassmorphism & Progressive Blur) ---------- */
 
 .modal {
-  width: min(440px, calc(100vw - 32px));
-  /* O reset global (* { margin: 0 }) mata o `margin: auto` que o <dialog>
-     usa pra se centralizar. Por isso ele volta aqui, explícito. */
+  width: min(380px, calc(100vw - 32px));
   margin: auto;
   padding: 0;
   border: none;
-  border-radius: var(--radius);
-  background: var(--white);
-  color: var(--ink);
+  border-radius: 32px;
+  background: transparent;
+  color: var(--white);
+  overflow: visible;
 }
 
 .modal::backdrop {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .modal[open] {
-  animation: modal-in 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: modal-in 340ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal__card {
   position: relative;
-  padding: var(--s5) var(--s4) var(--s4);
-  text-align: center;
+  width: 100%;
+  height: 530px;
+  max-height: 85vh;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 20px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px -16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.28),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  background: #181d19;
+}
+
+/* Imagem de fundo real */
+.modal__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+  z-index: 0;
+}
+
+/* Blur progressivo sobre o fundo da imagem */
+.modal__blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 38%,
+    rgba(0, 0, 0, 0.4) 52%,
+    rgba(0, 0, 0, 0.9) 68%,
+    black 82%,
+    black 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 38%,
+    rgba(0, 0, 0, 0.4) 52%,
+    rgba(0, 0, 0, 0.9) 68%,
+    black 82%,
+    black 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scrim suave translúcido apenas para garantir contraste tipográfico sem apagar a imagem */
+.modal__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 38%,
+    rgba(10, 16, 12, 0.15) 54%,
+    rgba(10, 16, 12, 0.45) 72%,
+    rgba(10, 16, 12, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
 }
 
 .modal__close {
   position: absolute;
-  top: var(--s2);
-  right: var(--s2);
-  width: 32px;
-  height: 32px;
-  border: none;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--gray);
-  font-size: var(--t-small);
+  background: rgba(15, 22, 18, 0.35);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  font-size: 13px;
   cursor: pointer;
-  transition: background var(--transition);
-}
-
-.modal__close:hover {
-  background: var(--gray-bg);
-}
-
-.modal__icon {
-  border-radius: 17px;
-  margin-bottom: var(--s3);
-}
-
-.modal__title {
-  font-size: var(--t-title);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.modal__text {
-  margin-top: var(--s2);
-  font-size: var(--t-body);
-  line-height: 1.5;
-  color: var(--gray);
-}
-
-/* A pergunta é o pedido de indicação — o multiplicador de uma waitlist. */
-.modal__ask {
-  margin-top: var(--s4);
-  font-size: var(--t-body);
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.modal__whatsapp {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: var(--s3);
-  text-decoration: none;
+  transition: all var(--transition);
+  z-index: 10;
 }
 
-.modal__copy {
-  width: 100%;
-  min-height: 52px;
-  margin-top: var(--s1);
-  border: none;
+.modal__close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: scale(1.06);
+}
+
+.modal__top-meta {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
-  background: var(--gray-bg);
-  color: var(--ink);
+  background: rgba(15, 22, 18, 0.35);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.modal__pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(204, 235, 87, 0.9);
+}
+
+/* Conteúdo sobre a área borrada da foto */
+.modal__content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding-inline: 4px;
+}
+
+.modal__title {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.modal__subtitle {
+  margin-top: 8px;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.48;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 30ch;
+  margin-inline: auto;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal__btn {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-pill);
   font-family: inherit;
-  font-size: var(--t-body);
+  font-size: var(--t-small);
   font-weight: 600;
   cursor: pointer;
-  transition: opacity var(--transition);
+  transition: all var(--transition);
+  text-decoration: none;
+  border: none;
 }
 
-.modal__copy:hover {
-  opacity: 0.75;
+.modal__btn--primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 4px 20px rgba(204, 235, 87, 0.4);
+}
+
+.modal__btn--primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(204, 235, 87, 0.55);
+}
+
+.modal__btn--secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.modal__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-1px);
 }
 
 @keyframes modal-in {
@@ -769,3 +1747,305 @@ body {
 .legal__footer a:hover {
   color: var(--ink);
 }
+
+/* ============================================================
+   HERO — Split 50/50: Texto e CTA à Esquerda, Celular à Direita
+   ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-block: var(--s5);
+  text-align: left;
+}
+
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: var(--s4);
+  text-align: left;
+}
+
+.hero__top-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s2);
+  margin-bottom: var(--s3);
+}
+
+.hero .app-icon {
+  margin: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(245, 245, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(210, 210, 215, 0.7);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.hero__badge:hover {
+  border-color: var(--gray);
+  background: var(--white);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(204, 235, 87, 0.9);
+}
+
+.hero__badge-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hero__badge-arrow {
+  font-size: 12px;
+  color: var(--gray);
+  transition: transform var(--transition);
+}
+
+.hero__badge:hover .hero__badge-arrow {
+  transform: translateX(2px);
+  color: var(--ink);
+}
+
+.hero__title {
+  margin-inline: 0;
+  max-width: 14ch;
+}
+
+/* Tipografia editorial chique com serif italiana/editorial + sublinhado no verde do app */
+.hero__highlight {
+  font-family: "Caveat", "Bradley Hand", "Segoe Script", cursive;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.28em;
+  /* Sem isso, o corpo maior da manuscrita empurra a linha inteira pra baixo e
+     abre um vão contra a linha de cima. */
+  line-height: 0.8;
+  letter-spacing: 0;
+  color: var(--ink);
+  padding-inline: 2px;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.hero__lead {
+  margin-inline: 0;
+  max-width: 36ch;
+}
+
+.hero .waitlist__form {
+  margin-inline: 0;
+}
+
+.hero__proof-micro {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  margin-top: var(--s2);
+  font-size: var(--t-micro);
+  color: var(--gray);
+}
+
+.hero__proof-sep {
+  opacity: 0.5;
+}
+
+@media (min-width: 900px) {
+  .hero__content > * {
+    max-width: 46%;
+  }
+
+  .hero__title {
+    max-width: min(46%, 14ch);
+  }
+
+  .hero__lead {
+    max-width: min(46%, 36ch);
+  }
+}
+
+@media (max-width: 899px) {
+  .hero {
+    align-items: flex-start;
+    min-height: 136svh;
+    padding-top: var(--s5);
+    text-align: center;
+  }
+
+  .hero__content {
+    text-align: center;
+  }
+
+  .hero__top-meta {
+    align-items: center;
+  }
+
+  .hero__proof-micro {
+    justify-content: center;
+  }
+
+  .hero .app-icon,
+  .hero__title,
+  .hero__lead,
+  .hero .waitlist__form {
+    margin-inline: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   PROVA — dois números, não dois parágrafos
+   O card cinza saiu: o que segura a atenção aqui é o número, e ele precisa de
+   branco em volta, não de caixa.
+   ============================================================ */
+
+.proof {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 7vw, 96px);
+  max-width: 880px;
+  margin: clamp(56px, 8vh, 96px) auto 0;
+  text-align: left;
+}
+
+.proof__stat {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.proof__number {
+  display: block;
+  font-size: clamp(56px, 8vw, 92px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* "em cada" e "min" acompanham o número mas não competem com ele. */
+.proof__unit {
+  font-size: 0.34em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--gray);
+}
+
+.proof__claim {
+  margin-top: var(--s3);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 30ch;
+}
+
+.proof__source {
+  margin-top: var(--s2);
+  font-size: var(--t-micro);
+  line-height: 1.5;
+  color: var(--gray);
+}
+
+@media (max-width: 700px) {
+  .proof {
+    grid-template-columns: 1fr;
+    gap: var(--s5);
+  }
+}
+
+/* Sub-headline da hero com a mesma cara do texto de prova: a sans do sistema,
+   em preto. A diferença que se via não era a família — era a cor cinza. */
+.hero__lead {
+  font-family: inherit;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   PROGRESSIVE GRADIENT BLUR (Macfolio / Linear Apple Glass)
+   ============================================================ */
+
+.bottom-page-blur {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  height: 96px;
+  pointer-events: none;
+  z-index: 90;
+  overflow: hidden;
+}
+
+.progressive-blur-layer {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) var(--mask-start),
+    rgba(0, 0, 0, 1) var(--mask-mid1),
+    rgba(0, 0, 0, 1) var(--mask-mid2),
+    rgba(0, 0, 0, 0) var(--mask-end)
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) var(--mask-start),
+    rgba(0, 0, 0, 1) var(--mask-mid1),
+    rgba(0, 0, 0, 1) var(--mask-mid2),
+    rgba(0, 0, 0, 0) var(--mask-end)
+  );
+}
+

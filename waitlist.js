@@ -26,31 +26,47 @@
   }
 
   function bind(form) {
+    const box = form.closest(".waitlist__box") || form.parentElement;
     const input = form.querySelector(".waitlist__input");
-    const button = form.querySelector(".button");
-    const note = form.parentElement.querySelector(".waitlist__note");
+    const button = form.querySelector(".button") || form.querySelector(".waitlist__btn");
+    const successCard = box ? box.querySelector(".waitlist__success") : null;
+    const note = box ? box.parentElement.querySelector(".waitlist__note") : null;
     const noteDefault = note ? note.textContent : "";
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!input.checkValidity()) return input.reportValidity();
 
-      const original = button.textContent;
+      // ESTADO 2: Carregando
+      form.classList.add("waitlist__form--loading");
       button.disabled = true;
-      button.textContent = "Entrando…";
 
       try {
         await subscribe(input.value);
-        form.hidden = true;
-        if (note) {
-          note.textContent = "Pronto. Sua vaga está garantida — te aviso no lançamento.";
+
+        // ESTADO 3: Inscrito (Morphing in-place)
+        form.classList.remove("waitlist__form--loading");
+        form.style.display = "none";
+
+        if (successCard) {
+          successCard.hidden = false;
+          // Por classe, não por id: hero e fecho usam o mesmo card de sucesso.
+          const wa = successCard.querySelector(".waitlist__share-btn");
+          if (wa) {
+            const link = window.location.origin + window.location.pathname;
+            wa.href = "https://wa.me/?text=" + encodeURIComponent(CONVITE + link);
+          }
+        } else if (note) {
+          note.textContent = "Pronto. Sua vaga está garantida, te aviso no lançamento.";
           note.classList.add("waitlist__note--done");
         }
-        abrirModal();
+
+        // Abre também o modal ampliado de indicação
+        setTimeout(abrirModal, 600);
       } catch (error) {
         console.error(error);
+        form.classList.remove("waitlist__form--loading");
         button.disabled = false;
-        button.textContent = original;
         if (note) {
           note.textContent = "Não consegui salvar agora. Tenta de novo em instantes?";
           note.classList.add("waitlist__note--error");
@@ -66,8 +82,8 @@
   // O modal de sucesso é onde se pede a indicação: é o pico de intenção,
   // e indicação é o que multiplica uma waitlist.
   const CONVITE =
-    "Achei um app que bloqueia o celular de manhã até você orar. " +
-    "Tá pra sair e dá pra entrar na lista: ";
+    "Encontrei um app que bloqueia o celular de manhã até você fazer a oração do dia. " +
+    "Vamos começar as manhãs em comunhão com Deus? Entra na lista de espera: ";
 
   function abrirModal() {
     const modal = document.getElementById("success-modal");
