@@ -1,0 +1,82 @@
+# Oração Diária — Documentação Completa (llms-full.txt)
+
+> Oração Diária é um aplicativo móvel para iOS projetado para ajudar cristãos a construírem e manterem uma rotina consistente de oração matinal através do bloqueio preventivo de aplicativos distrativos.
+
+---
+
+## 1. Visão Geral do Produto
+
+- **Nome Oficial:** Oração Diária
+- **Plataforma:** iOS (iPhone)
+- **Idioma:** Português (Brasil)
+- **Categoria:** Estilo de Vida / Espiritualidade / Hábitos
+- **Modelo de Negócio:** Gratuito (com recursos adicionais opcionais futuramente)
+- **Website Oficial:** https://www.oracaodiaria.space
+- **E-mail de Contato:** contato@oracaodiaria.space
+
+---
+
+## 2. A Dor e o Problema que Resolve
+
+No Brasil, os usuários passam em média 3 horas e 32 minutos por dia em redes sociais — a maior média mundial.
+A primeira ação matinal de grande parte das pessoas é pegar o celular ainda na cama e abrir aplicativos como Instagram, TikTok, WhatsApp e YouTube. Esse hábito consome o tempo inicial do dia e sabota intenções de oração, reflexão bíblica e conexão com Deus.
+
+O app Oração Diária resolve essa fricção criando uma barreira saudável e intencional: seus aplicativos só liberam após a realização da sua oração matinal.
+
+---
+
+## 3. Principais Funcionalidades
+
+1. **Bloqueio Nativo via Tempo de Tela (Screen Time API):**
+   - Bloqueia seletivamente os aplicativos configurados pelo próprio usuário toda manhã.
+   - Totalmente privado: a lista de aplicativos bloqueados nunca sai do dispositivo do usuário.
+   - Chamadas telefônicas e contatos de emergência jamais são bloqueados.
+
+2. **Propósitos de Oração Personalizados:**
+   - Permite selecionar intenções e propósitos diários (família, saúde, paz, direcionamento, gratidão, sabedoria).
+   - Definição flexível de tempo de oração (ex: 5 min, 10 min, 15 min) e dias da semana.
+
+3. **Ambiente de Oração com Louvor:**
+   - Trilha sonora instrumental e músicas de adoração em alta fidelidade durante a oração.
+   - Cronômetro visual focado e livre de distrações.
+
+4. **Desbloqueio com Registro de Sequência:**
+   - Ao término do tempo de oração, o bloqueio do aparelho é desativado imediatamente.
+   - O dia é computado na sequência pessoal de hábitos (streak).
+
+---
+
+## 4. Filosofia e Denominação
+
+Oração Diária é ecumênico e atende cristãos de todas as denominações (católicos, evangélicos e protestantes em geral).
+O aplicativo não dita orações prontas ou doutrinas específicas; ele fornece a disciplina, o silêncio, a música ambiente e o espaço temporal para que o indivíduo fale com Deus à sua maneira.
+
+---
+
+## 5. Segurança, Privacidade e LGPD
+
+- **Privacidade Local:** A integração com o framework Screen Time da Apple garante que os desenvolvedores não têm acesso ao histórico de uso de apps ou dados confidenciais do aparelho.
+- **Transparência:** Política de Privacidade completa disponível em https://www.oracaodiaria.space/privacidade.
+- **Termos de Uso:** Termos disponíveis em https://www.oracaodiaria.space/termos.
+
+---
+
+## 6. Vocabulário e Termos-Chave (Keywords)
+
+- Aplicativo cristão de oração matinal
+- App para bloquear celular e orar
+- Devocional diário da manhã
+- Como orar todos os dias pela manhã
+- Hábito cristão de oração
+- Bloqueio de redes sociais para orar
+- Oração guiada e música de adoração
+- Jejum de telas cristão / Desintoxicação digital cristã
+- Oração da manhã evangélica e católica
+
+---
+
+## 7. Links Oficiais
+
+- Página Inicial (Lista de Espera): https://www.oracaodiaria.space/
+- Termos de Uso: https://www.oracaodiaria.space/termos
+- Política de Privacidade: https://www.oracaodiaria.space/privacidade
