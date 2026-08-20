@@ -28,18 +28,18 @@
   function bind(form) {
     const box = form.closest(".waitlist__box") || form.parentElement;
     const input = form.querySelector(".waitlist__input");
-    const button = form.querySelector(".button") || form.querySelector(".waitlist__btn");
+    const button = form.querySelector(".button") || form.querySelector(".waitlist__btn") || form.querySelector("button[type='submit']") || form.querySelector("button");
     const successCard = box ? box.querySelector(".waitlist__success") : null;
     const note = box ? box.parentElement.querySelector(".waitlist__note") : null;
     const noteDefault = note ? note.textContent : "";
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (!input.checkValidity()) return input.reportValidity();
+      if (!input || !input.checkValidity()) return input ? input.reportValidity() : null;
 
       // ESTADO 2: Carregando
       form.classList.add("waitlist__form--loading");
-      button.disabled = true;
+      if (button) button.disabled = true;
 
       try {
         await subscribe(input.value);
@@ -66,7 +66,7 @@
       } catch (error) {
         console.error(error);
         form.classList.remove("waitlist__form--loading");
-        button.disabled = false;
+        if (button) button.disabled = false;
         if (note) {
           note.textContent = "Não consegui salvar agora. Tenta de novo em instantes?";
           note.classList.add("waitlist__note--error");
