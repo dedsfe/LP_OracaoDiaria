@@ -1,0 +1,423 @@
+/* Gerador de Plano de Leitura, estilos próprios.
+   Herda as variáveis e o shell (nav, footer, breadcrumbs) de oracoes.css. */
+
+[hidden] {
+  display: none !important;
+}
+
+.pl-wrap {
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 0 20px;
+}
+
+/* Título que existe para leitores de tela e para a estrutura de headings. */
+.sr-only-visually {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Formulário ---------- */
+
+.pl-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin: 32px 0;
+}
+
+.pl-form__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.pl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pl-field__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pl-field__hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.pl-input,
+.pl-select {
+  width: 100%;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  padding: 12px 14px;
+  appearance: none;
+}
+
+.pl-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a1a1a6' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+}
+
+.pl-input:focus,
+.pl-select:focus {
+  outline: none;
+  border-color: var(--border-active);
+}
+
+/* Data em dia / mês / ano, sempre em português e nesta ordem. */
+.pl-data {
+  display: grid;
+  grid-template-columns: 4.6rem minmax(0, 1fr) 5.6rem;
+  gap: 8px;
+}
+
+/* "setembro" e "dezembro" não cabem em uma coluna só do formulário. */
+@media (min-width: 700px) {
+  .pl-field--data { grid-column: span 2; }
+}
+
+.pl-data .pl-select {
+  padding-left: 10px;
+  padding-right: 26px;
+  background-position: right 8px center;
+}
+
+.pl-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.pl-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.pl-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.pl-btn:hover { background: var(--accent-hover); }
+
+.pl-btn--full { width: 100%; margin-top: 22px; }
+
+.pl-btn--sm { font-size: 14px; padding: 10px 18px; }
+
+.pl-btn--ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.pl-btn--ghost:hover {
+  background: var(--bg-card-hover);
+}
+
+/* ---------- Resumo ---------- */
+
+.pl-resumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 28px 0 20px;
+}
+
+.pl-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.pl-stat__num {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.pl-stat__label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ---------- Progresso ---------- */
+
+.pl-progress__bar {
+  height: 8px;
+  background: var(--bg-card);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.pl-progress__fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: width 0.3s ease;
+}
+
+.pl-progress__text {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* ---------- Caixa de atraso (o diferencial) ---------- */
+
+.pl-atraso {
+  background: var(--bg-accent-subtle);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  margin: 22px 0;
+}
+
+.pl-atraso__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.pl-atraso__desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.pl-atraso__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pl-aviso {
+  background: var(--bg-accent-subtle);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 15px;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+
+/* ---------- Cronograma ---------- */
+
+.pl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 12px;
+}
+
+.pl-cronograma {
+  list-style: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.pl-month {
+  background: var(--bg-card-hover);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+}
+
+.pl-day {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.pl-day__label {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  grid-template-areas:
+    "check date min"
+    "check ref  ref";
+  align-items: center;
+  gap: 2px 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+.pl-day__check {
+  grid-area: check;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.pl-day__date {
+  grid-area: date;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.pl-day__ref {
+  grid-area: ref;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pl-day__min {
+  grid-area: min;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.pl-tag {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+
+.pl-day.is-done .pl-day__ref {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.pl-day.is-today {
+  background: var(--bg-accent-subtle);
+}
+
+.pl-day.is-late .pl-day__ref {
+  color: var(--text-secondary);
+}
+
+.pl-day.is-late .pl-day__date::after {
+  content: " · atrasado";
+  color: var(--accent);
+}
+
+/* ---------- Plano estático (SEO / sem JS) ---------- */
+
+.pl-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 12px 0 28px;
+}
+
+.pl-tabela th,
+.pl-tabela td {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 9px 12px;
+  text-align: left;
+}
+
+.pl-tabela th {
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pl-tabela td:first-child {
+  color: var(--text-muted);
+  white-space: nowrap;
+  width: 90px;
+}
+
+.pl-mes {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.pl-mes > summary {
+  background: var(--bg-card);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 14px 18px;
+  list-style: none;
+}
+
+.pl-mes > summary::-webkit-details-marker { display: none; }
+
+.pl-mes > summary::before {
+  content: "▸ ";
+  color: var(--accent);
+}
+
+.pl-mes[open] > summary::before { content: "▾ "; }
+
+.pl-mes__body { padding: 0 18px; }
+
+/* ---------- Impressão ---------- */
+
+@media print {
+  .site-nav, .breadcrumbs, .site-footer, .pl-form,
+  .pl-actions, .pl-atraso, .app-bridge-card, .pl-faq,
+  .pl-intro, .pl-estatico { display: none !important; }
+
+  body.oracoes-body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 12px;
+  }
+
+  .pl-day, .pl-month { background: #fff !important; }
+  .pl-day__ref, .pl-day__date, .pl-day__min { color: #000 !important; }
+  .pl-cronograma { border-color: #ccc; }
+  .pl-day { border-top-color: #eee; page-break-inside: avoid; }
+}
+
+@media (max-width: 560px) {
+  .pl-form { padding: 20px; }
+  .pl-day__min { display: none; }
+  .pl-day__label { grid-template-columns: 22px 1fr; }
+}
