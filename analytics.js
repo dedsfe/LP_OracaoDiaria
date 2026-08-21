@@ -99,8 +99,9 @@
 
   // 6. Função de Envio de Evento para o Supabase
   function track(eventName, properties = {}) {
+    // Sem app_id: a coluna não existe em analytics_events e o PostgREST
+    // rejeitava o insert inteiro com 400 (PGRST204). A origem já vem em platform.
     const payload = {
-      app_id: "oracao-diaria-web",
       anon_id: anonId,
       event: eventName,
       step: properties.section || window.location.pathname + window.location.hash,
