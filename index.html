@@ -614,6 +614,8 @@
 
     <script src="config.js"></script>
     <script src="waitlist.js"></script>
-    <script src="analytics.js"></script>
+    <!-- ?v=2 força quem já visitou a baixar o tracker corrigido; o Cache-Control
+         da Vercel segurava a versão quebrada por 24h -->
+    <script src="analytics.js?v=2"></script>
   </body>
 </html>
