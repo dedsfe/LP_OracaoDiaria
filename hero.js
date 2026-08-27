@@ -114,8 +114,8 @@
     sprites[dead ? name + ":dead" : name] = s;
   }
 
-  let formRight = 0;
-  let formBottom = 0;
+  let ctaRight = 0;
+  let ctaBottom = 0;
 
   function layout() {
     dpr = Math.min(window.devicePixelRatio || 1, 3);
@@ -135,15 +135,15 @@
     const wide = W >= 900;
     iconSize = wide ? 60 : 44;
 
-    const formEl = content.querySelector(".waitlist__form");
-    if (formEl) {
-      const fb = formEl.getBoundingClientRect();
-      formRight = fb.right - r.left;
-      formBottom = fb.bottom - r.top;
+    const ctaEl = content.querySelector(".app-store-download");
+    if (ctaEl) {
+      const fb = ctaEl.getBoundingClientRect();
+      ctaRight = fb.right - r.left;
+      ctaBottom = fb.bottom - r.top;
     } else {
       const cb = content.getBoundingClientRect();
-      formRight = cb.right - r.left;
-      formBottom = cb.bottom - r.top;
+      ctaRight = cb.right - r.left;
+      ctaBottom = cb.bottom - r.top;
     }
 
     if (wide) {
@@ -159,7 +159,7 @@
         x: Math.min(W - pw - 30, Math.max(W * 0.58, targetX)),
         y: H * 0.5 - ph / 2,
       };
-      corridorTop = formBottom + 24;
+      corridorTop = ctaBottom + 24;
     } else {
       const cb = content.getBoundingClientRect().bottom - r.top;
       const spaceBelow = H - cb;
@@ -193,9 +193,9 @@
     const wide = W >= 900;
     // Ponto onde atinge o telefone: bem mais alto (entre 25% e 55% da altura do telefone)
     const yEnter = rand(phone.y + phone.h * 0.22, phone.y + phone.h * 0.52);
-    // Nasce abaixo do formulário de e-mail e botão
+    // Nasce abaixo do selo de download
     const yStart = wide
-      ? Math.min(floorY - iconSize - 12, formBottom + rand(28, 65))
+      ? Math.min(floorY - iconSize - 12, ctaBottom + rand(28, 65))
       : phone.y + rand(16, phone.h * 0.35);
 
     const maxDrop = wide
@@ -224,15 +224,15 @@
         b.x += b.vx * dt;
         
         // Curva inteligente:
-        // Enquanto está à esquerda do botão (x < formRight): viaja baixo/reto
-        // Assim que ultrapassa o botão (x >= formRight): sobe rápido e suave em direção ao meio do telefone
+        // Enquanto está à esquerda do CTA (x < ctaRight): viaja baixo/reto
+        // Assim que ultrapassa o CTA (x >= ctaRight): sobe rápido e suave em direção ao meio do telefone
         const wide = W >= 900;
         let p = 0;
-        if (wide && formRight > 0) {
-          if (b.x <= formRight) {
+        if (wide && ctaRight > 0) {
+          if (b.x <= ctaRight) {
             p = 0;
           } else {
-            p = Math.max(0, Math.min(1, (b.x - formRight) / Math.max(1, phone.x - formRight)));
+            p = Math.max(0, Math.min(1, (b.x - ctaRight) / Math.max(1, phone.x - ctaRight)));
           }
         } else {
           p = Math.max(0, Math.min(1, (b.x - b.x0) / (phone.x - b.x0)));

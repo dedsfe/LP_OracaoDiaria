@@ -33,7 +33,7 @@ app de oração, oração da manhã, oração diária, app cristão, bloquear ce
 
 ## Links
 
-- [Página principal](https://www.oracaodiaria.space): Landing page com waitlist para acesso antecipado ao app.
+- [Página principal](https://www.oracaodiaria.space): Landing page oficial com download direto do app na App Store.
 - [Biblioteca de Orações](https://www.oracaodiaria.space/oracoes): Diretório central de orações bíblicas e devocionais.
 - [Oração da Manhã](https://www.oracaodiaria.space/oracoes/oracao-da-manha): Oração guiada e princípios para começar o dia com Deus.
 - [Oração da Noite](https://www.oracaodiaria.space/oracoes/oracao-da-noite): Oração para dormir em paz e descansar no Senhor.

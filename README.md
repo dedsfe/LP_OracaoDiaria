@@ -1,13 +1,16 @@
-# Oração Diária — Landing Page de waitlist
+# Oração Diária — Landing Page
 
-Página estática (HTML + CSS, sem build) que captura e-mails no Supabase.
-O disparo das campanhas sai por um script Python usando o Resend.
+Página estática (HTML + CSS, sem build) que leva visitantes ao app publicado
+na App Store. A infraestrutura antiga da waitlist foi mantida para consultar e
+comunicar quem se cadastrou antes do lançamento, mas não é mais carregada pelas
+páginas públicas.
 
 - `index.html` / `styles.css` — a página
 - `DESIGN.md` — o sistema visual (leia antes de mexer no layout)
 - `COPY-RESEARCH.md` — research de conversão que embasa a copy
 - `supabase/waitlist.sql` — tabela + RLS
-- `waitlist.js` / `config.js` — captura no client
+- `waitlist.js` — captura legada, sem uso nas páginas públicas
+- `config.js` — configuração do analytics
 - `scripts/send_campaign.py` — disparo em massa
 
 ## 1. Banco (uma vez)

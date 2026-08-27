@@ -1,6 +1,6 @@
 # DESIGN.md — Landing Page Oração Diária
 
-Sistema visual da LP de waitlist. **Regra de ouro: quando estiver em dúvida, tire algo.**
+Sistema visual da landing page do app. **Regra de ouro: quando estiver em dúvida, tire algo.**
 Inspiração: apple.com — fundo branco, respiro absurdo, pouca variação, tipografia grande e calma.
 
 ---
@@ -103,26 +103,11 @@ Não existe `12px`, `16px`, `8px` de raio nesta página. Um raio, um pill. Fim.
 
 ## 6. Componentes
 
-### Botão primário
-```
-fundo: --ink · texto: branco · --t-body peso 600
-altura: 52px · padding-inline: 32px · raio: --radius-pill
-hover: opacity .85 (transição 200ms ease)
-active: scale(.97)
-```
-Existe **um** botão primário na página inteira: "Quero ser avisado". Repetir o mesmo botão no fim da página é permitido; criar um botão diferente não é.
-
-### Input de e-mail
-```
-fundo: --gray-bg · sem borda · texto: --ink · placeholder: --gray-light
-altura: 52px · padding-inline: 24px · raio: --radius-pill
-focus: box-shadow 0 0 0 2px var(--ink) — sem cor, sem glow
-```
-
-### Formulário de waitlist
-Desktop: input + botão lado a lado, gap `--s1`, largura total 480px, centralizado.
-Mobile: empilhado, ambos `width: 100%`.
-Abaixo, `--s2` de respiro e o aviso em `--t-micro` cinza: *"Sem spam. Só um aviso quando o app sair."*
+### CTA da App Store
+Usar somente o selo oficial preto e localizado em português do Brasil, sem
+redesenhar, inclinar ou animar a arte da Apple. Altura mínima de 40px, foco
+visível com `--accent` e uma nota curta abaixo: *"Grátis para começar · Feito
+para iPhone"*. Hero e fechamento podem repetir o mesmo destino.
 
 ### Card
 ```
@@ -146,11 +131,11 @@ Conteúdo do card: emoji 56px → `--s2` → título `--t-body` peso 600 → `--
 
 ## 8. Estrutura da página (ordem)
 
-1. **Hero** — emoji 56px · H1 (`--t-hero`, 2 linhas) · subtítulo (`--t-lead`, cinza, 1–2 linhas) · formulário · aviso micro.
+1. **Hero** — ícone do app · H1 (`--t-hero`, 2 linhas) · subtítulo (`--t-lead`, cinza, 1–2 linhas) · selo da App Store · nota micro.
 2. **O problema** — título de seção + 1 parágrafo `--t-lead` cinza. Sem card.
 3. **Como funciona** — 3 cards em grid (desktop 3 col, mobile 1 col empilhada, gap `--s3`).
-4. **Prova / contador** — 1 linha `--t-small`: *"N pessoas já na lista."* Nada mais.
-5. **CTA final** — repete o mesmo formulário, com um título `--t-title` curto acima.
+4. **Prova** — evidência real do produto e do hábito, sem números inventados.
+5. **CTA final** — repete o selo oficial da App Store, com um título `--t-title` curto acima.
 6. **Rodapé** — `--t-micro` cinza: nome, ano, link de privacidade. Uma linha.
 
 Máximo de **6 seções**. Se surgir uma sétima, ela vira conteúdo de uma existente ou é cortada.

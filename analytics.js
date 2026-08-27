@@ -160,6 +160,15 @@
     document.querySelectorAll("section[id], footer[id], div[id='waitlist']").forEach(el => {
       observer.observe(el);
     });
+
+    document.querySelectorAll("a[href*='apps.apple.com']").forEach((link) => {
+      link.addEventListener("click", () => {
+        track("web_app_store_click", {
+          cta_location: link.dataset.ctaLocation || "navigation",
+          destination: link.href
+        });
+      });
+    });
   });
 
   window.odTrack = track;

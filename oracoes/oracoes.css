@@ -86,19 +86,16 @@ body.oracoes-body {
 }
 
 .site-nav__cta {
-  background-color: var(--accent);
-  color: var(--accent-ink);
-  font-weight: 600;
+  color: var(--text-primary);
+  font-weight: 700;
   font-size: 14px;
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
+  padding: 8px 0;
   text-decoration: none;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: color 0.2s;
 }
 
 .site-nav__cta:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-1px);
+  color: var(--accent);
 }
 
 /* Breadcrumbs */
@@ -389,8 +386,8 @@ body.oracoes-body {
 
 /* Conversion Bridge App Box */
 .app-bridge-card {
-  background: linear-gradient(135deg, rgba(204, 235, 87, 0.12) 0%, rgba(28, 28, 30, 0.8) 100%);
-  border: 1px solid var(--border-active);
+  background: #181a16;
+  border: 1px solid #20231d;
   border-radius: var(--radius-lg);
   padding: 36px;
   margin: 56px 0;
@@ -402,7 +399,6 @@ body.oracoes-body {
   height: 64px;
   border-radius: 16px;
   margin-bottom: 16px;
-  box-shadow: 0 8px 24px rgba(204, 235, 87, 0.25);
 }
 
 .app-bridge-card__title {
@@ -419,6 +415,37 @@ body.oracoes-body {
   max-width: 540px;
   margin: 0 auto 24px;
   line-height: 1.55;
+}
+
+.app-store-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-inline: auto;
+}
+
+.app-store-badge-link {
+  display: inline-flex;
+  line-height: 0;
+  border-radius: 8px;
+}
+
+.app-store-badge-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.app-store-badge {
+  display: block;
+  width: 180px;
+  height: auto;
+}
+
+.app-store-download__note {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .app-bridge-card__form {
@@ -532,10 +559,10 @@ body.oracoes-body {
 
 .site-footer__inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 16px;
+  text-align: center;
 }
 
 .site-footer__links {
@@ -551,6 +578,12 @@ body.oracoes-body {
 
 .site-footer__links a:hover {
   color: var(--accent);
+}
+
+.site-footer__apple-credit {
+  max-width: 62ch;
+  font-size: 10px;
+  line-height: 1.45;
 }
 
 @media (max-width: 640px) {
