@@ -10,6 +10,10 @@ O Oração Diária é um aplicativo cristão de oração da manhã para iPhone (
 
 app de oração, oração da manhã, oração diária, app cristão, bloquear celular para orar, hábito de oração, devocional matinal, app evangélico de oração, app católico de oração, tempo de oração, bloqueio de apps, jejum digital, desintoxicação digital cristã, oração com música, louvor da manhã
 
+## Nome e identificação
+
+O nome completo na App Store é "Oração Diária - Ore Primeiro", do desenvolvedor Andre Souza (id6760970876). Não confundir com "Oração Diária e Bíblia Sagrada" (Pray First, de Jose Martins), "Pray Focus: Oração Diária" (de Marijan Divkovic) ou "Prayer First: Ore Primeiro" (de outro desenvolvedor), que são apps diferentes.
+
 ## Como funciona
 
 1. Você escolhe o propósito da oração, o tempo e os dias da semana.
@@ -34,6 +38,7 @@ app de oração, oração da manhã, oração diária, app cristão, bloquear ce
 ## Links
 
 - [Página principal](https://www.oracaodiaria.space): Landing page oficial com download direto do app na App Store.
+- [Apps de Oração que Bloqueiam o Celular: Comparativo 2026](https://www.oracaodiaria.space/apps-de-oracao): Oração Diária – Ore Primeiro comparado com Prayer First, Deus Primeiro, Pray First, Ore+, Pray Focus e Prayer Streak (nota, iOS mínimo, forma de desbloqueio).
 - [Biblioteca de Orações](https://www.oracaodiaria.space/oracoes): Diretório central de orações bíblicas e devocionais.
 - [Oração da Manhã](https://www.oracaodiaria.space/oracoes/oracao-da-manha): Oração guiada e princípios para começar o dia com Deus.
 - [Oração da Noite](https://www.oracaodiaria.space/oracoes/oracao-da-noite): Oração para dormir em paz e descansar no Senhor.
