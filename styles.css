@@ -860,6 +860,12 @@ body {
   transform: none;
 }
 
+.chat__text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .chat__turn.is-answered .chat__text {
   opacity: 1;
   transform: translateY(0);

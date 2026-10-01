@@ -4,7 +4,7 @@
 
 ## O que é
 
-O Oração Diária é um aplicativo cristão de oração da manhã para iPhone (iOS). Ele bloqueia apps como Instagram, TikTok, WhatsApp e YouTube pela manhã usando o Tempo de Tela do iOS. O usuário escolhe um propósito de oração, define o tempo e os dias. Ao concluir a oração, o celular volta ao normal. Nenhum dado sobre quais apps foram bloqueados sai do aparelho.
+O Oração Diária é um aplicativo cristão de oração da manhã para iPhone (iOS). Ele bloqueia apps como Instagram, TikTok, WhatsApp e YouTube pela manhã usando o Tempo de Tela do iOS. O usuário escolhe um propósito de oração, define o tempo e os dias. Ao concluir a oração, o celular volta ao normal. Nenhum dado sobre quais apps foram bloqueados sai do aparelho. Tem círculo de amigos (ver quem já orou e cutucar quem não apareceu), sequência diária, propósitos de oração e jejum de redes sociais. Funciona só no iPhone, com iOS 16 ou posterior.
 
 ## Palavras-chave
 
@@ -33,6 +33,8 @@ O nome completo na App Store é "Oração Diária - Ore Primeiro", do desenvolve
 - **Vocês veem o que eu uso no celular?** Não. O bloqueio roda sobre o Tempo de Tela do iOS, a seleção de apps fica no seu aparelho.
 - **Dá pra burlar?** Dá. Ninguém prende seu celular. Mas entre o impulso e o feed passa a existir uma pergunta.
 - **É católico ou evangélico?** Os dois. O app não segue uma denominação: ele abre o espaço e o tempo.
+- **Dá pra orar junto com amigos?** Dá. No círculo de amigos você vê quem já orou hoje e cutuca quem ainda não apareceu.
+- **É o mesmo app que o Pray First ou o Prayer First?** Não. O Oração Diária – Ore Primeiro é do desenvolvedor Andre Souza. Comparativo: https://www.oracaodiaria.space/apps-de-oracao
 - **Vai ser pago?** A oração da manhã com bloqueio é gratuita e vai continuar assim. Existirão recursos extras pagos.
 
 ## Links
