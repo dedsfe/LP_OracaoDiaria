@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ore comigo · Oração Diária</title>
+    <meta name="description" content="Um propósito de oração aberto no Oração Diária. Entre e ore junto." />
+    <meta name="robots" content="noindex" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oração Diária" />
+    <meta property="og:title" content="Ore comigo no Oração Diária" />
+    <meta property="og:description" content="Um propósito de oração aberto. Entre e ore junto." />
+    <meta property="og:image" content="https://www.oracaodiaria.space/og.jpg" />
+    <link rel="icon" href="/app-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script>
+      // O banner da App Store manda este link pro app ("Abrir"), que entra no
+      // propósito direto. Precisa existir antes do Safari ler a página.
+      (function () {
+        var meta = document.createElement("meta");
+        meta.name = "apple-itunes-app";
+        meta.content = "app-id=6760970876, app-argument=" + location.href;
+        document.head.appendChild(meta);
+      })();
+    </script>
+    <script src="/config.js"></script>
+    <style>
+      :root {
+        --white: #ffffff;
+        --ink: #1d1d1f;
+        --gray: #6e6e73;
+        --gray-light: #d2d2d7;
+        --gray-bg: #f5f5f7;
+        --radius: 28px;
+        --radius-pill: 999px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--white);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        min-height: 100vh;
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 64px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .emoji { font-size: 64px; line-height: 1; margin-bottom: 24px; }
+      h1 {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 16px;
+        max-width: 20ch;
+      }
+      .lead { font-size: 17px; line-height: 1.5; color: var(--gray); margin: 0 0 8px; max-width: 60ch; }
+      .small { font-size: 15px; line-height: 1.4; color: var(--gray); margin: 0 0 40px; }
+      .actions { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 320px; }
+      .btn {
+        display: block;
+        padding: 16px 24px;
+        border-radius: var(--radius-pill);
+        font-size: 17px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .btn-primary { background: var(--ink); color: var(--white); }
+      .btn-secondary { background: var(--gray-bg); color: var(--ink); }
+      .hint { font-size: 12px; line-height: 1.3; color: var(--gray); margin-top: 24px; max-width: 32ch; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="emoji" id="emoji">🙏</div>
+      <h1 id="title">Ore comigo no Oração Diária</h1>
+      <p class="lead" id="owner"></p>
+      <p class="lead" id="description" hidden></p>
+      <p class="small" id="members" hidden></p>
+
+      <div class="actions">
+        <a class="btn btn-primary" id="open" href="oracaodiaria://">Entrar no propósito</a>
+        <a
+          class="btn btn-secondary"
+          id="store"
+          href="https://apps.apple.com/br/app/ora%C3%A7%C3%A3o-di%C3%A1ria-ore-primeiro/id6760970876"
+          >Baixar o app grátis</a
+        >
+      </div>
+      <p class="hint">
+        Ainda não tem o app? Baixe, crie sua conta e toque no link de novo. Você cai direto na conversa do propósito.
+      </p>
+    </main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        // /p/<id> → o id do propósito (UUID, como o app grava).
+        var match = location.pathname.match(/^\/p\/([0-9a-fA-F-]{36})\/?$/);
+        var purposeID = match ? match[1].toUpperCase() : null;
+        if (!purposeID) return;
+
+        document.getElementById("open").href = "oracaodiaria://proposito/" + purposeID;
+
+        if (!window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) return;
+
+        // Só sai o que já é público no card; privado volta vazio e a página
+        // fica no convite genérico.
+        fetch(window.SUPABASE_URL + "/rest/v1/rpc/public_purpose_preview", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: window.SUPABASE_ANON_KEY,
+            Authorization: "Bearer " + window.SUPABASE_ANON_KEY,
+          },
+          body: JSON.stringify({ p_purpose_id: purposeID }),
+        })
+          .then(function (response) { return response.ok ? response.json() : []; })
+          .then(function (rows) {
+            var purpose = rows && rows[0];
+            if (!purpose) return;
+
+            // textContent sempre: o título é texto de usuário.
+            if (purpose.emoji) document.getElementById("emoji").textContent = purpose.emoji;
+            if (purpose.title) {
+              document.getElementById("title").textContent = purpose.title;
+              document.title = purpose.title + " · Oração Diária";
+            }
+            var ownerName = purpose.owner_name || (purpose.owner_handle ? "@" + purpose.owner_handle : "");
+            if (ownerName) {
+              var days = purpose.duration_days ? purpose.duration_days + " dias de oração" : "Propósito de oração";
+              document.getElementById("owner").textContent = days + " com " + ownerName;
+            }
+            if (purpose.description) {
+              var description = document.getElementById("description");
+              description.textContent = purpose.description;
+              description.hidden = false;
+            }
+            if (purpose.member_count > 1) {
+              var members = document.getElementById("members");
+              members.textContent = purpose.member_count.toLocaleString("pt-BR") + " pessoas orando juntas";
+              members.hidden = false;
+            }
+          })
+          .catch(function () {});
+      })();
+    </script>
+  </body>
+</html>
