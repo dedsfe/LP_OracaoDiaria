@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["4ZQ8PBTL5U.andresouza.OracaoDiaria"],
+        "components": [
+          { "/": "/p/*", "comment": "Link de propósito global: abre direto no app" }
+        ]
+      }
+    ]
+  }
+}
