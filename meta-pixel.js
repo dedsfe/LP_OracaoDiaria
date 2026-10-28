@@ -26,6 +26,13 @@
   document.addEventListener('click', function (event) {
     var link = event.target.closest && event.target.closest("a[href*='apps.apple.com']");
     if (!link) return;
+    // O app é só iOS: Lead conta só iPhone/iPad, pra campanha aprender a achar dono de iPhone.
+    var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (!isIOS) {
+      fbq('trackCustom', 'AppStoreClickNaoIOS');
+      return;
+    }
     fbq('track', 'Lead', {
       content_name: 'app_store_click',
       cta_location: link.dataset.ctaLocation || 'navigation'
